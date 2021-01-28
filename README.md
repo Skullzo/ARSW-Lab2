@@ -14,15 +14,30 @@ Creación, puesta en marcha y coordinación de hilos.
 
 1. Revise el programa “primos concurrentes” (en la carpeta parte1), dispuesto en el paquete edu.eci.arsw.primefinder. Este es un programa que calcula los números primos entre dos intervalos, distribuyendo la búsqueda de los mismos entre hilos independientes. Por ahora, tiene un único hilo de ejecución que busca los primos entre 0 y 30.000.000. Ejecútelo, abra el administrador de procesos del sistema operativo, y verifique cuantos núcleos son usados por el mismo.
 
-**Luego de Ejecutar la clase ```Main``` del programa, al abrir Java VisualVM, podemos observar que el consumo de recursos es muy alto, como se ve en la gráfica ```CPU usage``` de la siguiente imagen, al principio el programa consumió mucho porcentaje (casi del 50%) de la CPU, dando como resultado un rendimiento muy alto y un consumo muy alto de recursos.**
+**Luego de Ejecutar la clase ```Main``` del programa, al abrir Java VisualVM, podemos observar que el consumo de recursos es muy alto, como se ve en la gráfica ```CPU usage``` de la siguiente imagen, al principio el programa consumió mucho porcentaje (casi del 50%) de la CPU, dando como resultado un consumo muy alto de recursos.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte1.1VisualVM.PNG)
 
-**Luego de abrir el Administrador de Procesos del sistema operativo, se demuestra que el consumo de CPU fue considerablemente alto, consumiendo los  núcleos del computador que se dispuso para realizar el experimento, como se puede ver a continuación.**
+**Luego de abrir el Administrador de Procesos del sistema operativo, se demuestra que el consumo de CPU fue considerablemente alto, consumiendo los 4 núcleos del computador que se dispuso para realizar el experimento, como se puede ver a continuación.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/NumeroNucleos.jpeg)
 
 2. Modifique el programa para que, en lugar de resolver el problema con un solo hilo, lo haga con tres, donde cada uno de éstos hará la tarcera parte del problema original. Verifique nuevamente el funcionamiento, y nuevamente revise el uso de los núcleos del equipo.
+
+**Primero, modificamos el programa de la siguiente forma, implementando dos hilos demás, y cambiando el rango de los mismos, siendo ahora, el primer hilo ```pft1``` que encuentra los números primos desde el número 0 al número 10000000, el segundo hilo ```pft2``` que encuentra los números primos desde el número 10000000 al número 20000000 y el tercer hilo ```pft3``` que encuentra los números primos desde el número 20000000 al número 30000000, quedando la clase ```Main``` de la siguiente forma.**
+
+```java
+public class Main {
+	public static void main(String[] args) {
+		PrimeFinderThread pft1=new PrimeFinderThread(0, 10000000);
+		PrimeFinderThread pft2=new PrimeFinderThread(10000000, 20000000);
+		PrimeFinderThread pft3=new PrimeFinderThread(20000000, 30000000);
+		pft1.start();
+		pft2.start();
+		pft3.start();
+	}
+}
+```
 
 3. Lo que se le ha pedido es: debe modificar la aplicación de manera que cuando hayan transcurrido 5 segundos desde que se inició la ejecución, se detengan todos los hilos y se muestre el número de primos encontrados hasta el momento. Luego, se debe esperar a que el usuario presione ENTER para reanudar la ejecución de los mismo.
 
