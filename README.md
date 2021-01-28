@@ -14,7 +14,7 @@ Creación, puesta en marcha y coordinación de hilos.
 
 1. Revise el programa “primos concurrentes” (en la carpeta parte1), dispuesto en el paquete edu.eci.arsw.primefinder. Este es un programa que calcula los números primos entre dos intervalos, distribuyendo la búsqueda de los mismos entre hilos independientes. Por ahora, tiene un único hilo de ejecución que busca los primos entre 0 y 30.000.000. Ejecútelo, abra el administrador de procesos del sistema operativo, y verifique cuantos núcleos son usados por el mismo.
 
-**Luego de Ejecutar la clase ```Main``` del programa, al abrir Java VisualVM, podemos observar que el consumo de recursos es muy alto, como se ve en la gráfica ```CPU usage``` de la siguiente imagen, al principio el programa consumió mucho porcentaje (casi del 50%) de la CPU, dando como resultado un consumo muy alto de recursos.**
+**Luego de Ejecutar la clase ```Main``` del programa, al abrir Java VisualVM, podemos observar que el consumo de recursos es muy alto, como se ve en la gráfica ```CPU usage``` de la siguiente imagen, al principio el programa consumió mucho porcentaje (casi del 50%) de la CPU, dando como resultado un consumo muy alto de recursos. Asimismo, se observa también en la gráfica de ```Threads``` que el programa fue ejecutado con 1 solo hilo.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte1.1VisualVM.PNG)
 
@@ -38,6 +38,10 @@ public class Main {
 	}
 }
 ```
+
+**Luego de abrir nuevamente Java VisualVM, se evidencia un menor consumo de recursos, principalmente de CPU, ya que como se puede ver en la gráfica ```CPU usage```, consume un máximo de 30% de porcentaje de CPU al ejecutar el programa, representando así un mejor rendimiento ya que el programa encuentra los números primos en un menor tiempo. También en la gráfica ```Threads```, se evidencia el consumo de los 3 hilos implementados en el código mostrado con anterioridad, demostrando el funcionamiento correcto del código en cuanto a el número de hilos y el porcentaje de CPU consumido comparado con el punto anterior.**
+
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte1.2VisualVM.PNG)
 
 3. Lo que se le ha pedido es: debe modificar la aplicación de manera que cuando hayan transcurrido 5 segundos desde que se inició la ejecución, se detengan todos los hilos y se muestre el número de primos encontrados hasta el momento. Luego, se debe esperar a que el usuario presione ENTER para reanudar la ejecución de los mismo.
 
