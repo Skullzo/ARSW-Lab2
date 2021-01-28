@@ -64,3 +64,9 @@ Parte III
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
 
+## Autores
+[Alejandro Toro Daza](https://github.com/Skullzo)
+
+[David Fernando Rivera Vargas](https://github.com/DavidRiveraRvD)
+## Licencia
+Licencia bajo la [GNU General Public License](https://github.com/Skullzo/AREP-Lab1/blob/main/LICENSE).
