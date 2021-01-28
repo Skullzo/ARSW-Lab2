@@ -69,4 +69,4 @@ Parte III
 
 [David Fernando Rivera Vargas](https://github.com/DavidRiveraRvD)
 ## Licencia
-Licencia bajo la [GNU General Public License](https://github.com/Skullzo/AREP-Lab1/blob/main/LICENSE).
+Licencia bajo la [GNU General Public License](https://github.com/Skullzo/ARSW-Lab2/blob/main/LICENSE).
