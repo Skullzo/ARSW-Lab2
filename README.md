@@ -100,7 +100,7 @@ Al iniciar la aplicación, hay un primer error evidente: los resultados (total r
 
 En la siguente imagen visualizamos que el problema del mensaje esta solucionado, para ello modificacmos la clase MainCanodromo.
 	
-![](./img/media/Parte II.PNG)
+![](./img/media/parte2.PNG)
  
 Parte III
 
