@@ -155,7 +155,10 @@ public class Canodromo extends JFrame {
 	public void setContinueAction(ActionListener action){
 		butContinue.addActionListener(action);
 	}
-	
+
+	/*
+	Muestra el ganador.
+	 */
 	public void winnerDialog(String winner,int total) {
             JOptionPane.showMessageDialog(null, "El ganador fue:" + winner + " de un total de " + total);
         }	
