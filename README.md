@@ -39,13 +39,46 @@ public class Main {
 }
 ```
 
-**Luego de abrir nuevamente Java VisualVM, se evidencia un menor consumo de recursos, principalmente de CPU, ya que como se puede ver en la gráfica ```CPU usage```, consume un máximo de 30% de porcentaje de CPU al ejecutar el programa, representando así un mejor rendimiento ya que el programa encuentra los números primos en un menor tiempo. También en la gráfica ```Threads```, se evidencia el consumo de los 3 hilos implementados en el código mostrado con anterioridad, demostrando el funcionamiento correcto del código en cuanto a el número de hilos y el porcentaje de CPU consumido comparado con el punto anterior.**
+**Luego de abrir nuevamente Java VisualVM, se evidencia un menor consumo de recursos, principalmente de CPU, ya que como se puede ver en la gráfica ```CPU usage```, consume un máximo de 30% de porcentaje de CPU al ejecutar el programa, representando así un mejor rendimiento ya que el programa encuentra los números primos en un menor tiempo. También en la gráfica ```Threads```, se evidencia el consumo de los 3 hilos implementados en el código mostrado con anterioridad, demostrando el funcionamiento correcto del código en cuanto al número de hilos y el porcentaje de CPU consumido comparado con el punto anterior.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte1.2VisualVM.PNG)
 
 3. Lo que se le ha pedido es: debe modificar la aplicación de manera que cuando hayan transcurrido 5 segundos desde que se inició la ejecución, se detengan todos los hilos y se muestre el número de primos encontrados hasta el momento. Luego, se debe esperar a que el usuario presione ENTER para reanudar la ejecución de los mismo.
 
+**Para realizar esta parte, primero se importaron las librerías ```java.io.*``` y ```java.util.*```, para poder implementar ```resume()``` y ```suspend()```, los cuales serán ejecutados dentro de un Timer de 5 segundos (5000 milisegundos), para luego detener todos los hilos con el ```suspend()```, y reanudarlos luego de realizar la lectura del salto de línea registrado por el teclado luego de presionar ENTER, usando ```BufferedReader```, para así reanudar todos los hilos y seguir con la ejecución del programa. El código de esta parte quedó de la siguiente forma.**
 
+```java
+public class Main {
+	public static void main(String[] args) {
+		PrimeFinderThread pft1=new PrimeFinderThread(0, 10000000);
+		PrimeFinderThread pft2=new PrimeFinderThread(10000000, 20000000);
+		PrimeFinderThread pft3=new PrimeFinderThread(20000000, 30000000);
+		pft1.start();
+		pft2.start();
+		pft3.start();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		new Timer().schedule( 
+		        new TimerTask() {
+		            @Override
+		            public void run() {
+		                try {
+		                	pft1.suspend();
+							pft2.suspend();
+							pft3.suspend();
+							while(br.read() != '\n') {
+								br.read();
+							}
+							pft1.resume();
+							pft2.resume();
+							pft3.resume();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+		            }
+		        },5000);
+	}
+}
+```
 
 ### Parte II 
 
