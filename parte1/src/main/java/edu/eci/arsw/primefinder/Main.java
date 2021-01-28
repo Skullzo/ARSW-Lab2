@@ -10,7 +10,7 @@ public class Main {
 		pft2.start();
 		pft3.start();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		new java.util.Timer().schedule( 
+		new Timer().schedule( 
 		        new TimerTask() {
 		            @Override
 		            public void run() {
