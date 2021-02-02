@@ -98,11 +98,11 @@ logre tomar el ‘1’ será el ganador.
 
 Al iniciar la aplicación, hay un primer error evidente: los resultados (total recorrido y número del galgo ganador) son mostrados antes de que finalice la carrera como tal. Sin embargo, es posible que una vez corregido esto, haya más inconsistencias causadas por la presencia de condiciones de carrera.
 
-En la siguente imagen visualizamos que el problema del mensaje esta solucionado, para ello modificacmos la clase MainCanodromo.
+**Luego de iniciar la aplicación, se ve claramente el error de los resultados. Al realizar clic en ```Start```, el aviso emergente que muestra los resultados que debería salir al finalizar la carrera para retornar el ganador de la carrera, se muestra justo al iniciar la carrera, lo que muestra una clara inconsistencia de la aplicación al retornar el ganador cuando la carrera aún no ha empezado, como se ve a continuación.**
 	
-![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/parte2.PNG)
- 
-Parte III
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte2.PNG)
+
+### Parte III
 
 1.  Corrija la aplicación para que el aviso de resultados se muestre
     sólo cuando la ejecución de todos los hilos ‘galgo’ haya finalizado.
