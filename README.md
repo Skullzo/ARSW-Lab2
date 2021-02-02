@@ -262,6 +262,115 @@ El ganador fue:8
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
+    
+**Para realizar la implementación de las funcionalidades de pausar y continuar, en la cual se habilitan los botones ```Stop``` y ```Continue``` para así dormir y despertar los hilos de los galgos respctivamente, se optó por modificar el código en la clase ```MainCanodromo```, precisamente en los métodos que implementaban esta funcionalidad pero estaban erróneamente implementados, que son ```can.setStopAction``` y ```can.setContinueAction``` respectivamente. Para el correcto funcionamiento de los mismos, se implementó ```setPause()``` en ambos y ```notifyAll()``` en ```can.setContinueAction```, quedando el código de la siguiente forma.**
+
+```java
+can.setStopAction(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        for (Galgo j : galgos) {
+                        	j.setPause(true);
+                        }
+                        System.out.println("Carrera pausada!");
+                    }
+                }
+        );
+
+can.setContinueAction(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                    	synchronized (reg) {
+                    		reg.notifyAll();
+                    		for (Galgo j : galgos) {
+                            	j.setPause(false);
+                            }
+						}
+                        System.out.println("Carrera reanudada!");
+                    }
+                }
+        );
+```
+
+**Adicionalmente se crearon métodos para poder que sirviera ```Stop``` y ```Continue```, en la clase ```MainCanodromo``` se creó el método ```RegistroLlegada``` que gestiona el monitoreo del registro de la llegada. Asimismo se adicionaron métodos a la clase ```Galgo``` como ```setPause``` que se encarga de llevar a cabo la pausa o ```Stop``` de la aplicación estableciendo un booleano, y el método ```pause``` que también se encarga de gestionar la pausa de la carrera en cuestión.**
+
+**Método ```RegistroLlegada``` de la clase ```MainCanodromo```.**
+
+```java
+public static RegistroLlegada getMonitor(){
+    	return reg;
+}
+```
+
+**Método ```setPause``` de la clase ```Galgo```.**
+
+```java
+public void setPause( boolean p) {
+	inPause = p;
+}
+```
+
+**Método ```pause``` de la clase ```Galgo```.**
+
+```java
+public void pause() {
+		if (inPause) {
+			synchronized (MainCanodromo.getMonitor()) {
+				try {
+					MainCanodromo.getMonitor().wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+			}
+		}
+	}
+	inPause=false;
+}
+```
+
+**Para probar que la aplicación sirve, primero se presiona clic sobre el botón ```Stop``` para comprobar que el programa se detiene. Como se puede ver en la siguiente imágen, el programa se detiene correctamente.**
+
+Imagen
+
+**Luego, al realizar clic en el botón ```Continue```, se observa que la aplicación se reanuda, reanudando la carrera.**
+
+Imagen
+
+**Finalmente, se observa que la aplicación se acaba luego de realizar clic en el botón ```Continue```, mostrando el aviso del galgo ganador.**
+
+Imagen
+
+**Al realizar la respectiva revisión en la consola de Java, se observa que se muestran los mensajes de que la carrera ha sido pausada y reanudada respectivamente, probando el funcionamiento correcto del código luego de realizar las implementaciones descritas anteriormente.**
+
+```
+Carrera pausada!
+Carrera reanudada!
+Carrera pausada!
+Carrera reanudada!
+Carrera pausada!
+Carrera reanudada!
+Carrera pausada!
+Carrera reanudada!
+El galgo 14 llego en la posicion 1
+El galgo 3 llego en la posicion 2
+El galgo 6 llego en la posicion 3
+El galgo 7 llego en la posicion 4
+El galgo 16 llego en la posicion 5
+El galgo 13 llego en la posicion 6
+El galgo 5 llego en la posicion 7
+El galgo 12 llego en la posicion 8
+El galgo 4 llego en la posicion 9
+El galgo 10 llego en la posicion 10
+El galgo 0 llego en la posicion 11
+El galgo 2 llego en la posicion 12
+El galgo 8 llego en la posicion 13
+El galgo 9 llego en la posicion 14
+El galgo 1 llego en la posicion 15
+El galgo 11 llego en la posicion 16
+El galgo 15 llego en la posicion 17
+El ganador fue:14
+```
 
 ## Autores
 [Alejandro Toro Daza](https://github.com/Skullzo)
