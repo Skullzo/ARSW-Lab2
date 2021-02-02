@@ -112,7 +112,7 @@ Parte III
 
     b.  Puede utilizarse el método join() de la clase Thread para sincronizar el hilo que inicia la carrera, con la finalización de los hilos de los galgos.
     
-**Para corregir la aplicación, para que el aviso de resultados muestre sólo cuando la ejecución de todos los hilos ‘galgo’ haya finalizado, se utilizó método ```join()``` de la clase Thread, con la cual se sincronizó el hilo que inicia la carrera, con la finalización de los hilos de los galgos, utilizando un booleano encargado de mostrar el aviso de resultados solamente cuando los hilos finalizann, como se muestra en el siguiente código.**
+**Para corregir la aplicación, para que el aviso de resultados muestre sólo cuando la ejecución de todos los hilos ‘galgo’ haya finalizado, se utilizó método ```join()``` de la clase Thread del método Main, con la cual se sincronizó el hilo que inicia la carrera, con la finalización de los hilos de los galgos, utilizando un booleano encargado de mostrar el aviso de resultados solamente cuando los hilos finalizann, como se muestra en el siguiente código.**
 
 ```java
 public static void main(String[] args) {
@@ -156,6 +156,18 @@ public static void main(String[] args) {
                 }
         );
 ```
+
+**Para comprobar el funcionamiento correcto del código, se ejecutó desde el ```main``` el código, mostrando primero la carrera, como se ve a continuación.**
+
+Imagen
+
+**Luego de que la carrera ha finalizado, se muestra el respectivo aviso del ganador, como se ve a continuación.**
+
+Imagen
+
+**Finalmente, el programa retorna las posiciones de la carrera en la Consola de Java de la siguiente forma.**
+
+Imagen
 
 2.  Una vez corregido el problema inicial, corra la aplicación varias
     veces, e identifique las inconsistencias en los resultados de las
