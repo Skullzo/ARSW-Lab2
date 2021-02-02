@@ -100,7 +100,7 @@ Al iniciar la aplicación, hay un primer error evidente: los resultados (total r
 
 En la siguente imagen visualizamos que el problema del mensaje esta solucionado, para ello modificacmos la clase MainCanodromo.
 	
-![](./img/media/parte2.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/parte2.PNG)
  
 Parte III
 
@@ -159,11 +159,11 @@ public static void main(String[] args) {
 
 **Para comprobar el funcionamiento correcto del código, se ejecutó desde el ```main``` el código, mostrando primero la carrera, como se ve a continuación.**
 
-Imagen
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.1.1.PNG)
 
 **Luego de que la carrera ha finalizado, se muestra el respectivo aviso del ganador, como se ve a continuación.**
 
-Imagen
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.1.2.PNG)
 
 **Finalmente, el programa retorna las posiciones de la carrera en la Consola de Java de la siguiente forma.**
 
