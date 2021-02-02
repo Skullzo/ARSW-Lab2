@@ -167,7 +167,26 @@ Imagen
 
 **Finalmente, el programa retorna las posiciones de la carrera en la Consola de Java de la siguiente forma.**
 
-Imagen
+```
+El galgo 1 llego en la posicion 1
+El galgo 0 llego en la posicion 2
+El galgo 15 llego en la posicion 2
+El galgo 9 llego en la posicion 3
+El galgo 10 llego en la posicion 4
+El galgo 13 llego en la posicion 5
+El galgo 2 llego en la posicion 6
+El galgo 5 llego en la posicion 8
+El galgo 7 llego en la posicion 7
+El galgo 6 llego en la posicion 9
+El galgo 8 llego en la posicion 12
+El galgo 11 llego en la posicion 12
+El galgo 14 llego en la posicion 13
+El galgo 3 llego en la posicion 11
+El galgo 16 llego en la posicion 10
+El galgo 4 llego en la posicion 14
+El galgo 12 llego en la posicion 15
+El ganador fue:1
+```
 
 2.  Una vez corregido el problema inicial, corra la aplicación varias
     veces, e identifique las inconsistencias en los resultados de las
