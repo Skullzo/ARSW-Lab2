@@ -195,9 +195,22 @@ El ganador fue:1
     dichas inconsistencias). A partir de esto, identifique las regiones
     críticas () del programa.
 
+**Luego de corregir el problema inicial de mostrar el aviso del ganador luego de que finalizara la carrera, al realizar la primera prueba, puesta en el numeral anterior, al retornar las posiciones de la carrera en la Consola de Java, se ve que las posiciones se repiten, como fue en el caso del galgo 8 y del galgo 11, como se ve en las líneas 2 y 3 respectivamente del siguiente fragmento de consola de Java. Ésta inconsistencia fue identificada en el momento justo de realizar la corrección parcial del programa, se identificaron al momento de acceder a las posiciones como las regiones críticas principales.**
+
+```
+El galgo 6 llego en la posicion 9
+El galgo 8 llego en la posicion 12
+El galgo 11 llego en la posicion 12
+El galgo 14 llego en la posicion 13
+```
+
 3.  Utilice un mecanismo de sincronización para garantizar que a dichas
     regiones críticas sólo acceda un hilo a la vez. Verifique los
     resultados.
+    
+**Luego de realizar la respectiva identificación de las regiones críticas del programa, se implementa ```synchronized``` en la clase ```Galgo``` justamente n el método ```corra()``` para realizar la respectiva identificación y posteriormente corrección del código de la siguiente forma, evitando con ```synchronized``` que las posiciones de los galgos se repitieran, solucionando así el problema.**
+
+
 
 4.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
