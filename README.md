@@ -233,7 +233,7 @@ public void corra() throws InterruptedException {
 
 **Para comprobar que la solución planteada ha servido, primero se ejecuta la aplicación de la siguiente forma.**
 
-![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.1.2.PNG)
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.3.1.PNG)
 
 **Luego se procede a ver la Consola de Java. Como se puede observar a continuación, usando ```synchronized```, la aplicación retorna en consola las posiciones en órden, asegurando que no se repite ninguna.**
 
