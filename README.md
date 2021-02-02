@@ -337,7 +337,7 @@ public void pause() {
 
 ![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.4.2.PNG)
 
-**Finalmente, se observa que la aplicación se acaba luego de realizar clic en el botón ```Continue```, mostrando el aviso del galgo ganador.**
+**Finalmente, se observa que la aplicación se acaba luego de realizar clic en el botón ```Continue``` y dejando que la carrera se ejecute, mostrando el aviso del galgo ganador luego de que la carrera finaliza.**
 
 ![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.4.3.PNG)
 
