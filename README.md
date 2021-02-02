@@ -331,15 +331,15 @@ public void pause() {
 
 **Para probar que la aplicación sirve, primero se presiona clic sobre el botón ```Stop``` para comprobar que el programa se detiene. Como se puede ver en la siguiente imágen, el programa se detiene correctamente.**
 
-Imagen
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.4.1.PNG)
 
 **Luego, al realizar clic en el botón ```Continue```, se observa que la aplicación se reanuda, reanudando la carrera.**
 
-Imagen
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.4.2.PNG)
 
 **Finalmente, se observa que la aplicación se acaba luego de realizar clic en el botón ```Continue```, mostrando el aviso del galgo ganador.**
 
-Imagen
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.4.3.PNG)
 
 **Al realizar la respectiva revisión en la consola de Java, se observa que se muestran los mensajes de que la carrera ha sido pausada y reanudada respectivamente, probando el funcionamiento correcto del código luego de realizar las implementaciones descritas anteriormente.**
 
