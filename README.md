@@ -208,9 +208,55 @@ El galgo 14 llego en la posicion 13
     regiones críticas sólo acceda un hilo a la vez. Verifique los
     resultados.
     
-**Luego de realizar la respectiva identificación de las regiones críticas del programa, se implementa ```synchronized``` en la clase ```Galgo``` justamente n el método ```corra()``` para realizar la respectiva identificación y posteriormente corrección del código de la siguiente forma, evitando con ```synchronized``` que las posiciones de los galgos se repitieran, solucionando así el problema.**
+**Luego de realizar la respectiva identificación de las regiones críticas del programa, se implementa ```synchronized``` en la clase ```Galgo``` justamente en el método ```corra()``` para realizar la respectiva identificación y posteriormente corrección del código de la siguiente forma, evitando con ```synchronized``` que las posiciones de los galgos se repitieran, solucionando así el problema realizando la siguiente modificación del código.**
 
+```java
+public void corra() throws InterruptedException {
+		while (paso < carril.size()) {			
+			Thread.sleep(100);
+			carril.setPasoOn(paso++);
+			carril.displayPasos(paso);
+			if (paso == carril.size()) {						
+				carril.finish();
+				synchronized (regl){
+					int ubicacion=regl.getUltimaPosicionAlcanzada();
+					regl.setUltimaPosicionAlcanzada(ubicacion+1);
+					System.out.println("El galgo "+this.getName()+" llego en la posicion "+ubicacion);
+					if (ubicacion==1){
+						regl.setGanador(this.getName());
+					}
+				}
+			}
+		}
+	}
+```
 
+**Para comprobar que la solución planteada ha servido, primero se ejecuta la aplicación de la siguiente forma.**
+
+![img](https://github.com/Skullzo/ARSW-Lab2/blob/main/img/media/Parte3.1.2.PNG)
+
+**Luego se procede a ver la Consola de Java. Como se puede observar a continuación, usando ```synchronized```, la aplicación retorna en consola las posiciones en órden, asegurando que no se repite ninguna.**
+
+```
+El galgo 8 llego en la posicion 1
+El galgo 13 llego en la posicion 2
+El galgo 1 llego en la posicion 3
+El galgo 16 llego en la posicion 4
+El galgo 2 llego en la posicion 5
+El galgo 7 llego en la posicion 6
+El galgo 15 llego en la posicion 7
+El galgo 4 llego en la posicion 8
+El galgo 9 llego en la posicion 9
+El galgo 11 llego en la posicion 10
+El galgo 12 llego en la posicion 11
+El galgo 6 llego en la posicion 12
+El galgo 0 llego en la posicion 13
+El galgo 5 llego en la posicion 14
+El galgo 10 llego en la posicion 15
+El galgo 3 llego en la posicion 16
+El galgo 14 llego en la posicion 17
+El ganador fue:8
+```
 
 4.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
